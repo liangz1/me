@@ -1,0 +1,23 @@
+---
+# Jekyll front matter
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+body {
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+  font-size: 1.15em;
+}
+
+h1, h2, h3, h4,
+.page__title,
+.archive__item-title {
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+}
+
+code, pre, kbd {
+  font-family: "Menlo", "Consolas", monospace;
+}
