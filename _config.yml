@@ -56,7 +56,7 @@ plugins:
 
 author:
   name   : "Liang Zhang"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/avatar.PNG"
   bio    : "Independent researcher, mechanistic interpretability."
   links:
     - label: "GitHub"
