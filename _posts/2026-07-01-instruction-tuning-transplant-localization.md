@@ -19,7 +19,6 @@ The answers point in a consistent direction. The base model does compute the que
 
 Why this might interest readers working on interpretability: copying versus reasoning is a familiar topic, usually approached behaviorally, by varying the prompt and reading the output. This post takes a mechanistic angle instead. A cross-model layer transplant lets me ask not just whether instruction tuning removes the copying, but where inside the network the change is located, and whether it looks like a new mechanism or a switch flipped on an existing one. Treating the base and instruction-tuned models as two halves to be recombined turns a behavioral difference into a question about specific layers, which is a small step toward saying what instruction tuning actually does to a model internally.
 
-> **Note on AI assistance.** The experiments, analysis, and conclusions in this post are my own. I used an AI assistant as a discussion partner while working through the results, to help check the related-work citations, and to edit the prose for clarity. The claims, the interpretation of the data, and the decisions about what to include or cut are mine, including the negative steering result and the points where I argue against my own earlier interpretations.
 
 ## Summary of findings
 
@@ -271,3 +270,7 @@ Beyond the closest work, the task and its phenomena rest on a few established id
 The most direct next step is at the circuit level. The transplant localizes where the copying is decided, but not which heads carry it out. Existing tools fit this directly: copy-suppression and anti-induction heads have been characterized ([McDougall et al., 2023](https://arxiv.org/abs/2310.04625)), and the strength of induction versus anti-induction circuits, and how fine-tuning shifts it, has been measured ([Jobanputra et al., 2025](https://arxiv.org/abs/2505.21785)). Applying those measurements across the transplant would test whether instruction tuning suppresses the overlay by weakening the induction heads that copy, by strengthening the anti-induction or copy-suppression heads that resist it, or both.
 
 A second step tests the nature of the suppression rather than its location. The idea is that instruction tuning suppresses copying when an explicit instruction calls for it, not in every case. Halawi et al.'s flipped-label prompts can be interpreted in two valid ways: that the example labels are wrong and should be corrected, or that the examples define a labeling convention to apply. We can verify explicitly how an instruction-tuned model responds to each interpretation by adding an instruction that selects it: one version asking for the true sentiment regardless of the example labels, the other saying the examples define a convention to apply. If instruction tuning suppresses copying under the first but not the second, while the base model ignores the instruction in both, that supports reading the suppression as instruction-following rather than an unconditional anti-copy effect.
+
+---
+
+*I used an AI assistant to help edit the writing and as a discussion partner. The experiments, analysis, and all claims are my own.*
