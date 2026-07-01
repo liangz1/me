@@ -122,7 +122,7 @@ A transplant at layer k means: run the first k layers using one model (the sourc
 
 ### Result: a flip, and it is early and asymmetric
 
-![Flip curves: final-layer softcapped logit of milk vs kitchen against transplant point k, for both transplant directions]({{ '/assets/images/transplant-fig1-flip-curves.png' | relative_url }})
+![Flip curves: final-layer softcapped logit of milk vs kitchen against transplant point k, for both transplant directions](/assets/images/transplant-fig1-flip-curves.png)
 
 *Figure 1: flip curves. x axis = transplant point k; y axis = final-layer softcapped logit of `milk` vs `kitchen`; left panel IT to base, right panel base to IT.*
 
@@ -138,7 +138,7 @@ I do not mean a literal discrete mechanism has been identified. The claim is des
 
 The per-transplant-point trajectories make the shape of the transition clearer.
 
-![Per-transplant-point residual trajectories over layers 16 to 25, milk vs kitchen, for each transplant point k in both directions]({{ '/assets/images/transplant-fig2-trajectory-panels.png' | relative_url }})
+![Per-transplant-point residual trajectories over layers 16 to 25, milk vs kitchen, for each transplant point k in both directions](/assets/images/transplant-fig2-trajectory-panels.png)
 
 *Figure 2: residual trajectories over layers 16 to 25 for each transplant point k, `milk` vs `kitchen`, with the pure-target trajectory drawn faint for reference. Left column IT to base, right column base to IT.*
 
@@ -170,7 +170,7 @@ Start with the logit lens. Reading the overlay and competitor logits layer by la
 
 <p>The same competitor-stays-high, overlay-rises-late pattern shows up under a different prompt template. An earlier exploratory run used the same belief items but a five-shot, less heavily scaffolded template, and tracked the overlay and competitor logits layer by layer for pure base and pure instruction-tuned (no transplant).</p>
 
-<img src="{{ '/assets/images/transplant-fig3-seven-item-supplement.png' | relative_url }}" alt="Overlay vs competitor trajectories for seven items, base vs instruction-tuned, under a different prompt template">
+<img src="/assets/images/transplant-fig3-seven-item-supplement.png" alt="Overlay vs competitor trajectories for seven items, base vs instruction-tuned, under a different prompt template">
 
 <p><em>Figure 3: overlay vs competitor trajectories for seven items, base vs instruction-tuned.</em></p>
 
@@ -182,7 +182,7 @@ So the logit lens places the copying late: the overlay word only wins in the fin
 
 Now the attention. At the position where the model is about to emit the overlay word, I measured how much each head attends to the demonstration's `milk` tokens (the copy source) and to the query's `kitchen` tokens (the semantic target), for base and for instruction-tuned, layer by layer.
 
-![Attention mass at the overlay position, summed over heads, across layers, for base and instruction-tuned to demo-milk and query-kitchen]({{ '/assets/images/transplant-fig4-attention-mass.png' | relative_url }})
+![Attention mass at the overlay position, summed over heads, across layers, for base and instruction-tuned to demo-milk and query-kitchen](/assets/images/transplant-fig4-attention-mass.png)
 
 *Figure 4: attention mass at the overlay position (summed over heads).*
 
@@ -210,7 +210,7 @@ Two objections to the localization are worth addressing directly, since both are
 
 Is the transplant flip just an artifact of mismatched scales between the two models? When you run the first layers of one model and the rest of another, there is no guarantee the two operate at the same numerical scale; if base activations live at one magnitude and instruction-tuned at another, the combined run could land in a range neither model was built for, and the flip might reflect that mismatch rather than anything meaningful. As a check, I tracked the norm (the length) of the final-layer residual at the readout position for every transplant point.
 
-![Residual norm at the readout position against transplant point k, for both directions, with the two flip points marked inside the stable region]({{ '/assets/images/transplant-fig5-norm-sweep.png' | relative_url }})
+![Residual norm at the readout position against transplant point k, for both directions, with the two flip points marked inside the stable region](/assets/images/transplant-fig5-norm-sweep.png)
 
 *Figure 5: norm sweep.*
 
